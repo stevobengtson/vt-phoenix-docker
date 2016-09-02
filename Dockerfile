@@ -19,7 +19,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y curl wget git mak
  && apt-get install -y elixir erlang-dev erlang-parsetools && rm erlang-solutions_1.0_all.deb \
  && mix local.hex --force \
  && mix local.rebar --force \
- && mix archive.install --force https://github.com/phoenixframework/archives/raw/master/phoenix_new-$PHOENIX_VERSION.ez
+ && mix archive.install --force https://github.com/phoenixframework/archives/raw/master/phoenix_new-$PHOENIX_VERSION.ez \
  && curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - && sudo apt-get install -y nodejs
 
 WORKDIR /code
