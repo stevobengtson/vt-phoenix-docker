@@ -2,6 +2,8 @@ FROM ubuntu:latest
 
 MAINTAINER Steven Bengtson <steven.bengtson@me.com>
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 # Elixir requires UTF-8
 RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
@@ -31,7 +33,8 @@ RUN rm -rf /var/cache/apt/*
 
 # install the Phoenix Mix archive
 ENV PHOENIX_VERSION 1.2.0
-RUN mix local.hex
+RUN mix local.hex --force
+RUN mix local.rebar --force
 RUN mix archive.install --force https://github.com/phoenixframework/archives/raw/master/phoenix_new-$PHOENIX_VERSION.ez
 
 # install Node.js (>= 6.0.0) and NPM in order to satisfy brunch.io dependencies
