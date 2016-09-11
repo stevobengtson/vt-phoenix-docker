@@ -20,7 +20,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y curl wget git mak
  && mix local.hex --force \
  && mix local.rebar --force \
  && mix archive.install --force https://github.com/phoenixframework/archives/raw/master/phoenix_new-$PHOENIX_VERSION.ez \
- && curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - && sudo apt-get install -y nodejs
+ && curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - && sudo apt-get install -y nodejs \
  && npm config set registry https://npm.fury.io/ZFUoPCqbmgypL5ASEF8P/varsity/ \
  && npm config set ca "" \
  && npm install -g node-gyp phantomjs-prebuilt
