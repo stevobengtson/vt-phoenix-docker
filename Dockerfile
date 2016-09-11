@@ -11,7 +11,7 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
-RUN apt-get update && apt-get upgrade -y && apt-get install -y curl wget git make sudo \
+RUN apt-get update && apt-get upgrade -y && apt-get install -y curl wget git make sudo bzip2 \
  && touch /etc/init.d/couchdb \
  && wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb \
  && dpkg -i erlang-solutions_1.0_all.deb \
@@ -21,8 +21,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y curl wget git mak
  && mix local.rebar --force \
  && mix archive.install --force https://github.com/phoenixframework/archives/raw/master/phoenix_new-$PHOENIX_VERSION.ez \
  && curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - && sudo apt-get install -y nodejs \
- && npm config set registry https://npm.fury.io/ZFUoPCqbmgypL5ASEF8P/varsity/ \
- && npm config set ca "" \
- && npm install -g node-gyp phantomjs-prebuilt
+ && npm install -g node-gyp phantomjs-prebuilt \
+ && npm config set registry https://npm.fury.io/ZFUoPCqbmgypL5ASEF8P/varsity/
 
 WORKDIR /code
